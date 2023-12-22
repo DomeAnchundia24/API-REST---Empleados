@@ -4,7 +4,6 @@ url = 'https://dummy.restapiexample.com/api/v1/employees'
 empleados = requests.get(url).json()
 print(empleados)
 
-# Asegurarse de que la respuesta es exitosa y contiene datos
 if empleados['status'] == 'success':
     lista_empleados = empleados['data']
 
@@ -16,7 +15,6 @@ if empleados['status'] == 'success':
     edad_min = float('inf')
     edad_max = float('-inf')
 
-    # Recorrer cada empleado para acumular datos y encontrar valores mínimos y máximos
     for empleado in lista_empleados:
         salario = int(empleado['employee_salary'])
         edad = int(empleado['employee_age'])
@@ -34,7 +32,6 @@ if empleados['status'] == 'success':
         if edad > edad_max:
             edad_max = edad
 
-    # Calcular promedios
     promedio_salario = total_salario / len(lista_empleados)
     promedio_edad = total_edad / len(lista_empleados)
 
